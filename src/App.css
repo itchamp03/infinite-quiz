@@ -1,0 +1,98 @@
+/* App.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .question-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .question-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+  }
+  
+  .option {
+    background-color: #f0f1f6;
+    padding: 12px 18px;
+    margin: 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+  }
+  
+  .option:hover {
+    background-color: #e0e3e8;
+  }
+  
+  .option.selected {
+    background-color: #c8f7c5;
+  }
+  
+  .option.incorrect {
+    background-color: #f7c5c5;
+  }
+  
+  .loading {
+    text-align: center;
+    font-size: 1.5em;
+  }
+  
+  .loader {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.5em;
+  }
+  
+  .loader div {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: #3498db;
+    display: inline-block;
+    animation: loader 0.8s infinite alternate;
+  }
+  
+  .loader div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loader div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes loader {
+    0% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
