@@ -40,6 +40,7 @@ const QuestionCard = ({ questionData, onAnswer }) => {
 
 const App = () => {
   const [visibleQuestions, setVisibleQuestions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false); // Add a loading flag
   const loadCount = 3;
   const loaderRef = useRef();
   const questionRefs = useRef([]); // Array of refs for each question
@@ -51,7 +52,7 @@ const App = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        if (entries[0].isIntersecting && !isLoading) {
           loadMoreQuestions();
         }
       },
@@ -67,14 +68,16 @@ const App = () => {
         observer.unobserve(loaderRef.current);
       }
     };
-  }, [visibleQuestions]);
+  }, [visibleQuestions, isLoading]); // Add isLoading to the dependency array
 
   const loadMoreQuestions = () => {
+    setIsLoading(true); // Set loading to true
     const currentCount = visibleQuestions.length;
     const more = allQuestions.slice(currentCount, currentCount + loadCount);
     if (more.length > 0) {
       setVisibleQuestions((prev) => [...prev, ...more]);
     }
+    setIsLoading(false); // Reset loading after updating
   };
 
   const handleAnswer = (index) => {
