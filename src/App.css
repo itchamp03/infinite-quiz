@@ -1,98 +1,144 @@
 /* App.css */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fa;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Adjust for scrolling */
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 2em;
+  margin: 20px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 90%; /* Adjust for smaller screens */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.question-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.question-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.option {
+  background-color: #f0f1f6;
+  padding: 12px 18px;
+  margin: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1em;
+  text-align: center;
+}
+
+.option:hover {
+  background-color: #e0e3e8;
+  transform: scale(1.02);
+}
+
+.option.selected {
+  background-color: #c8f7c5;
+  color: #2d7a2d;
+  font-weight: bold;
+}
+
+.option.incorrect {
+  background-color: #f7c5c5;
+  color: #a12d2d;
+  font-weight: bold;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.loader {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.5em;
+}
+
+.loader div {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #3498db;
+  display: inline-block;
+  animation: loader 0.8s infinite alternate;
+}
+
+.loader div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loader {
+  0% {
+    opacity: 0.3;
   }
-  
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Media Query for iPhone Optimization */
+@media (max-width: 768px) {
   h1 {
-    text-align: center;
-    color: #333;
-    font-size: 2.5em;
+    font-size: 1.8em;
   }
-  
+
   .container {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 95%;
+    padding: 15px;
   }
-  
+
   .question-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .question-card h3 {
-    font-size: 1.4em;
+    padding: 15px;
     margin-bottom: 15px;
   }
-  
+
+  .question-card h3 {
+    font-size: 1em;
+  }
+
   .option {
-    background-color: #f0f1f6;
-    padding: 12px 18px;
-    margin: 10px 0;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1.2em;
+    font-size: 0.9em;
+    padding: 10px 15px;
   }
-  
-  .option:hover {
-    background-color: #e0e3e8;
-  }
-  
-  .option.selected {
-    background-color: #c8f7c5;
-  }
-  
-  .option.incorrect {
-    background-color: #f7c5c5;
-  }
-  
-  .loading {
-    text-align: center;
-    font-size: 1.5em;
-  }
-  
-  .loader {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 1.5em;
-  }
-  
+
   .loader div {
-    width: 20px;
-    height: 20px;
-    margin: 5px;
-    border-radius: 50%;
-    background-color: #3498db;
-    display: inline-block;
-    animation: loader 0.8s infinite alternate;
+    width: 12px;
+    height: 12px;
   }
-  
-  .loader div:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  
-  .loader div:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-  
-  @keyframes loader {
-    0% {
-      opacity: 0.3;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
+}
